@@ -1,28 +1,27 @@
 :root {
-  --color-brand--1: #ffb545;
-  --color-brand--2: #00c46a;
+  --color-brand-1: #ffb545;
+  --color-brand-2: #00c46a;
 
-  --color-dark--1: #2d3439;
-  --color-dark--2: #42484d;
-  --color-light--1: #aaa;
-  --color-light--2: #ececec;
-  --color-light--3: rgb(214, 222, 224);
+  --color-dark-1: #2d3439;
+  --color-dark-2: #42484d;
+  --color-light-1: #aaa;
+  --color-light-2: #ececec;
+  --color-light-3: rgb(214, 222, 224);
 }
 
 * {
   margin: 0;
   padding: 0;
-  box-sizing: inherit;
-}
-
-html {
-  font-size: 62.5%;
   box-sizing: border-box;
 }
 
+html {
+  font-size: 62.5%; /* 1rem = 10px for easier rem calculations */
+}
+
 body {
-  font-family: 'Manrope', sans-serif;
-  color: var(--color-light--2);
+  font-family: "Manrope", sans-serif;
+  color: var(--color-light-2);
   font-weight: 400;
   line-height: 1.6;
   height: 100vh;
@@ -30,21 +29,20 @@ body {
 
   background-color: #fff;
   padding: 2.5rem;
-
   display: flex;
 }
 
-/* GENERAL */
+/* General Styles */
 a:link,
 a:visited {
-  color: var(--color-brand--1);
+  color: var(--color-brand-1);
 }
 
-/* SIDEBAR */
+/* Sidebar */
 .sidebar {
   flex-basis: 50rem;
-  background-color: var(--color-dark--1);
-  padding: 3rem 5rem 4rem 5rem;
+  background-color: var(--color-dark-1);
+  padding: 3rem 5rem;
   display: flex;
   flex-direction: column;
 }
@@ -74,12 +72,14 @@ a:visited {
   cursor: pointer;
 
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: repeat(4, 1fr);
   gap: 0.75rem 1.5rem;
 }
+
 .workout--running {
   border-left: 5px solid var(--color-brand--2);
 }
+
 .workout--cycling {
   border-left: 5px solid var(--color-brand--1);
 }
@@ -98,7 +98,6 @@ a:visited {
 .workout__icon {
   font-size: 1.8rem;
   margin-right: 0.2rem;
-  height: 0.28rem;
 }
 
 .workout__value {
@@ -113,19 +112,17 @@ a:visited {
   font-weight: 800;
 }
 
+/* Form Styles */
 .form {
   background-color: var(--color-dark--2);
   border-radius: 5px;
   padding: 1.5rem 2.75rem;
   margin-bottom: 1.75rem;
-
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 0.5rem 2.5rem;
-
-  /* Match height and activity boxes */
   height: 9.25rem;
-  transition: all 0.5s, transform 1ms;
+  transition: transform 0.5s, opacity 0.5s;
 }
 
 .form.hidden {
@@ -159,7 +156,7 @@ a:visited {
   border: none;
   border-radius: 3px;
   background-color: var(--color-light--3);
-  transition: all 0.2s;
+  transition: background-color 0.2s;
 }
 
 .form__input:focus {
@@ -168,9 +165,10 @@ a:visited {
 }
 
 .form__btn {
-  display: none;
+  display: none; /* Change this to block if you need it visible */
 }
 
+/* Copyright */
 .copyright {
   margin-top: auto;
   font-size: 1.3rem;
@@ -178,10 +176,11 @@ a:visited {
   color: var(--color-light--1);
 }
 
+/* Twitter Link Styles */
 .twitter-link:link,
 .twitter-link:visited {
   color: var(--color-light--1);
-  transition: all 0.2s;
+  transition: color 0.2s;
 }
 
 .twitter-link:hover,
@@ -189,14 +188,14 @@ a:visited {
   color: var(--color-light--2);
 }
 
-/* MAP */
+/* Map Styles */
 #map {
   flex: 1;
   height: 100%;
   background-color: var(--color-light--1);
 }
 
-/* Popup width is defined in JS using options */
+/* Leaflet Popup Styles */
 .leaflet-popup .leaflet-popup-content-wrapper {
   background-color: var(--color-dark--1);
   color: var(--color-light--2);
@@ -215,6 +214,34 @@ a:visited {
 .running-popup .leaflet-popup-content-wrapper {
   border-left: 5px solid var(--color-brand--2);
 }
+
 .cycling-popup .leaflet-popup-content-wrapper {
   border-left: 5px solid var(--color-brand--1);
+}
+
+/* Instructions Styles */
+.instructions {
+  background-color: var(--color-light--2);
+  border-radius: 5px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.instructions h2 {
+  color: black; /* Heading text in black */
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.instructions p {
+  color: black; /* Paragraph text in black */
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+}
+
+.instructions ol {
+  color: black; /* Paragraph text in black */
+  margin-left: 1.5rem;
+  font-size: 1.4rem;
 }
